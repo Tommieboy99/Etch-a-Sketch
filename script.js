@@ -8,4 +8,16 @@ for (let i = 0; i <= 255; i++) {
     let square = document.createElement("div");
     square.classList.add("square");
     container.appendChild(square);
+
+    //Set up a “hover” effect so that the grid divs change color when your mouse passes over them, leaving a (pixelated) trail through your grid like a pen would.
+    //Hint: “Hovering” is what happens when your mouse enters a div and ends when your mouse leaves it. You can set up event listeners for either of those events as a starting point.
+    square.addEventListener("mouseover", () => {
+        square.style.backgroundColor = "yellow"; 
+    });
+
+    square.addEventListener("mouseout", () => {
+        square.style.backgroundColor = "white";
+    });
 }
+
+
