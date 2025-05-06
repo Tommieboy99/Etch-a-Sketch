@@ -1,5 +1,43 @@
-//Create a webpage with a 16x16 grid of square divs. Create the divs using JavaScript. Don’t try to create them by hand by copying and pasting them in your HTML file!
-//It’s best to put your grid squares inside a “container” div. This div can be written in your HTML file.
+let button = document.createElement("button");
+button.textContent = "Set Grid Size";
+document.body.prepend(button); // Add the button on top of the body
+
+button.addEventListener("click", () => {
+    let input = prompt("Number of squares per side for the new grid:");
+    let userInput = parseInt(input);
+
+    if (!isNaN(userInput) && userInput > 0 && userInput < 100) {
+        createGrid(userInput); // Call the function createGrid with userInput
+    } else {
+        alert("Please enter a valid number greater than 0 and less than 100");
+    }
+});
+
+function createGrid (userInput) {
+
+    container.innerHTML = "";
+
+    let totalSquares = userInput * userInput;
+    let squareSize = 960 / userInput + "px";
+
+    for (let i = 0; i < totalSquares; i++ ) {
+        let square = document.createElement("div");
+        square.classList.add("square");
+        square.style.height = squareSize;
+        square.style.width = squareSize;
+
+
+        square.addEventListener("mouseover", () => {
+            square.style.backgroundColor = "yellow"; 
+        });
+
+        square.addEventListener("mouseout", () => {
+            square.style.backgroundColor = "white";
+        }); 
+
+        container.appendChild(square);
+    }
+}
 
 let container = document.querySelector(".container");
 
@@ -9,15 +47,11 @@ for (let i = 0; i <= 255; i++) {
     square.classList.add("square");
     container.appendChild(square);
 
-    //Set up a “hover” effect so that the grid divs change color when your mouse passes over them, leaving a (pixelated) trail through your grid like a pen would.
-    //Hint: “Hovering” is what happens when your mouse enters a div and ends when your mouse leaves it. You can set up event listeners for either of those events as a starting point.
     square.addEventListener("mouseover", () => {
         square.style.backgroundColor = "yellow"; 
     });
 
     square.addEventListener("mouseout", () => {
         square.style.backgroundColor = "white";
-    });
+    }); 
 }
-
-

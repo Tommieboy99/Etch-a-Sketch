@@ -1,25 +1,23 @@
-/* Use Flexbox to make the divs appear as a grid (versus just one on each line). 
-Despite the name, do not be tempted to research or use CSS Grid, as it will be taught in a later lesson after the foundations path. 
-This project is an opportunity specifically to practice Flexbox! */
-
 body {
     display: flex;
+    flex-direction: column;
     height: 100vh;
     justify-content: center;
     align-items: center;
+    margin: 35px;
 }
 
 .container {
     display: flex;
     flex-wrap: wrap;
-    width: 512px;
+    max-width: 960px;
+    max-height: 960px;
+    margin-top: 10px;
 }
 
 .square {
-    width: 10px;
-    height: 10px;
     border: 1px solid black;
-    width: 32px;
-    height: 32px;
     box-sizing: border-box;
+    width: 60px;
+    height: 60px;
 }
